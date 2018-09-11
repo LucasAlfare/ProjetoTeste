@@ -9,9 +9,20 @@ import javax.swing.ImageIcon
 
 object Imagem {
 
-    @JvmStatic
-    fun desenharNota(unidadeNota: Int, largura: Int, altura: Int, posX: Int, posY: Int, grafico: Graphics){
-        grafico.drawImage(imagem(caminhoImagemNota(unidadeNota)!!, largura, altura), posX, posY, null)
+    fun Graphics.desenharNota(unidadeNota: Int, largura: Int, altura: Int, posX: Int, posY: Int){
+        drawImage(imagem(caminhoImagemNota(unidadeNota)!!, largura, altura), posX, posY, null)
+    }
+
+    fun Graphics.desenharPauta(largura: Int, altura: Int, posX: Int, posY: Int) {
+        drawImage(imagem("musicstaff.svg.png", altura, largura), posX, posY, null)
+    }
+
+    fun Graphics.desenharClaveG(largura: Int, altura: Int, posX: Int, posY: Int) {
+        drawImage(imagem("G-Clef.svg.png", largura, altura), posX, posY, null)
+    }
+
+    fun Graphics.desenharFormulaCompasso(largura: Int, altura: Int, posX: Int, posY: Int){
+        drawImage(imagem("commontime.svg.png", largura, altura), posX, posY, null)
     }
 
     private fun imagem(caminho: String, largura: Int, altura: Int): Image {
