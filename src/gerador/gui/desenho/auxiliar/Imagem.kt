@@ -10,34 +10,34 @@ import javax.swing.ImageIcon
 object Imagem {
 
     @JvmStatic
-    fun desenharNota(unidadeNota: Int, largura: Int, altura: Int, posX: Int, posY: Int, grafico: Graphics){
-        grafico.drawImage(imagem(caminhoImagemNota(unidadeNota)!!, largura, altura), posX, posY, null)
+    fun desenharNota(unidadeNota: Int, altura: Int, largura: Int, posX: Int, posY: Int, grafico: Graphics){
+        grafico.drawImage(imagem(caminhoImagemNota(unidadeNota)!!, altura, largura), posX, posY, null)
     }
 
     @JvmStatic
-    fun desenharPauta(largura: Int, altura: Int, posX: Int, posY: Int, grafico: Graphics) {
+    fun desenharPauta(altura: Int, largura: Int, posX: Int, posY: Int, grafico: Graphics) {
         grafico.drawImage(imagem("imagens/musicstaff.svg.png", altura, largura), posX, posY, null)
     }
 
     @JvmStatic
-    fun desenharClaveG(largura: Int, altura: Int, posX: Int, posY: Int, grafico: Graphics) {
-        grafico.drawImage(imagem("imagens/G-Clef.svg.png", largura, altura), posX, posY, null)
+    fun desenharClaveG(altura: Int, largura: Int, posX: Int, posY: Int, grafico: Graphics) {
+        grafico.drawImage(imagem("imagens/G-Clef.svg.png", altura, largura), posX, posY, null)
     }
 
     @JvmStatic
-    fun desenharFormulaCompasso(largura: Int, altura: Int, posX: Int, posY: Int, grafico: Graphics){
-        grafico.drawImage(imagem("imagens/commontime.svg.png", largura, altura), posX, posY, null)
+    fun desenharFormulaCompasso(altura: Int, largura: Int, posX: Int, posY: Int, grafico: Graphics){
+        grafico.drawImage(imagem("imagens/commontime.svg.png", altura, largura), posX, posY, null)
     }
 
     private fun imagem(caminho: String, largura: Int, altura: Int): Image {
         return redimensionada(ImageIcon(caminho).image, largura, altura)
     }
 
-    private fun redimensionada(imagem: Image, novaLargura: Int, novaAltura: Int): Image {
-        val ret = BufferedImage(novaLargura, novaAltura, BufferedImage.TYPE_INT_ARGB)
+    private fun redimensionada(imagem: Image, novaAltura: Int, novaLargura: Int): Image {
+        val ret = BufferedImage(novaAltura, novaLargura, BufferedImage.TYPE_INT_ARGB)
         val auxGraf = ret.createGraphics()
         auxGraf.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR)
-        auxGraf.drawImage(imagem, 0, 0, novaLargura, novaAltura, null)
+        auxGraf.drawImage(imagem, 0, 0, novaAltura, novaLargura, null)
         auxGraf.dispose()
         return ret
     }

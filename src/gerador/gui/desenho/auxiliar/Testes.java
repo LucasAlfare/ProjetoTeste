@@ -4,6 +4,7 @@ import gerador.core.Valores;
 
 import javax.swing.*;
 import java.awt.*;
+import static gerador.gui.desenho.auxiliar.Imagem.*;
 
 public class Testes extends JFrame {
 
@@ -20,9 +21,8 @@ public class Testes extends JFrame {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             setBackground(Color.WHITE);
-            int[] t = Imagem.tamanhoImagemNota(Valores.QUARTER);
-            //Imagem.desenharNota(Valores.QUARTER, t[0] / 10, t[1] / 10, 10, 10, g);
-            Imagem.desenharClaveG(100, 100, 10, 10, g);
+
+            desenharPauta(100, 500, 0, 0, g);
         }
     }
 
