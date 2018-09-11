@@ -1,10 +1,11 @@
-package gerador.core
+package gerador
 
 import java.util.*
 
-class Compasso(var quantidade: Int, var unidade: Int, val notas: ArrayList<Nota> = arrayListOf()) {
+class Compasso(var quantidade: Int, var unidade: Int) {
 
-    fun duracaoMaxima() = quantidade * Valores.duracoes[unidade]!!.toDouble()
+    val notas = arrayListOf<Nota>()
+    val duracaoMaxima = quantidade * Valores.duracoes[unidade]!!.toDouble()
 
     fun duracaoAtual(): Double {
         var total = 0.0
@@ -18,28 +19,28 @@ class Compasso(var quantidade: Int, var unidade: Int, val notas: ArrayList<Nota>
     }
 
     fun adicionarNoFim(nota: Nota) {
-        val compassoTeste = Compasso(quantidade, unidade, arrayListOf())
+        val compassoTeste = Compasso(quantidade, unidade)
         compassoTeste.notas.addAll(notas)
         compassoTeste.notas.add(nota)
-        if (compassoTeste.duracaoAtual() <= duracaoMaxima()) {
+        if (compassoTeste.duracaoAtual() <= duracaoMaxima) {
             notas.add(nota)
         }
     }
 
     override fun toString(): String {
-
         return "$quantidade/$unidade: $notas"
     }
+
 
     companion object {
         val notasOpcoes = arrayListOf(
                 Nota(Valores.SEMIBREVE),
                 Nota(Valores.MINIMA),
                 Nota(Valores.SEMINIMA),
-                Nota(Valores.COLCHEIA)
-                //Nota(Valores.SEMICOLCHEIA),
-                //Nota(Valores.FUSA),
-                //Nota(Valores.SEMIFUSA)
+                Nota(Valores.COLCHEIA),
+                Nota(Valores.SEMICOLCHEIA),
+                Nota(Valores.FUSA),
+                Nota(Valores.SEMIFUSA)
 
                 /*
                 ,Nota(Valores.SEMIBREVE, true),
@@ -60,7 +61,7 @@ class Compasso(var quantidade: Int, var unidade: Int, val notas: ArrayList<Nota>
                 unidade: Int = unidades[Random().nextInt(unidades.size)]): Compasso {
             val c = Compasso(quantidade, unidade)
 
-            while (c.duracaoAtual() < c.duracaoMaxima()){
+            while (c.duracaoAtual() < c.duracaoMaxima){
                 c.adicionarNoFim(notasOpcoes[Random().nextInt(notasOpcoes.size)])
 
                 /*
