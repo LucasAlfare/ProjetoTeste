@@ -30,4 +30,14 @@ object Valores {
             FUSA         to         "fusa",
             SEMIFUSA     to     "semifusa"
     )
+
+    val espacamentos = mutableMapOf(
+            SEMIBREVE    to    (SEMIBREVE * 4),
+            MINIMA       to       (MINIMA * 4),
+            SEMINIMA     to     (SEMINIMA * 4),
+            COLCHEIA     to     (COLCHEIA * 4),
+            SEMICOLCHEIA to (SEMICOLCHEIA * 4),
+            FUSA         to         (FUSA * 4),
+            SEMIFUSA     to     (SEMIFUSA * 4)
+    )
 }

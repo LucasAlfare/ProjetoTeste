@@ -72,6 +72,7 @@ object Imagem {
     @JvmStatic
     val tamanhoFormulaCompassoC = intArrayOf(500, 1500)
 
+    @JvmStatic
     fun tamanhoConvertido(a: IntArray, b: IntArray, c: IntArray): IntArray {
         return intArrayOf(c[0] * b[0] / a[0], c[1] * b[1] / a[1])
     }
