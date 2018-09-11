@@ -33,23 +33,23 @@ class Compasso(var quantidade: Int, var unidade: Int, val notas: ArrayList<Nota>
 
     companion object {
         val notasOpcoes = arrayListOf(
-                Nota(Valores.WHOLE),
-                Nota(Valores.HALF),
-                Nota(Valores.QUARTER),
-                Nota(Valores.EIGHTH)
-                //Nota(Valores.SIXTEENTH),
-                //Nota(Valores.THIRTY_SECOND),
-                //Nota(Valores.SIXTY_FOURTH)
+                Nota(Valores.SEMIBREVE),
+                Nota(Valores.MINIMA),
+                Nota(Valores.SEMINIMA),
+                Nota(Valores.COLCHEIA)
+                //Nota(Valores.SEMICOLCHEIA),
+                //Nota(Valores.FUSA),
+                //Nota(Valores.SEMIFUSA)
 
                 /*
-                ,Nota(Valores.WHOLE, true),
-                Nota(Valores.HALF, true),
-                Nota(Valores.QUARTER, true),
-                Nota(Valores.EIGHTH, true),
-                Nota(Valores.SIXTEENTH, true),
-                Nota(Valores.THIRTY_SECOND, true),
-                Nota(Valores.SIXTY_FOURTH, true)
-                Nota(Valores.SIXTY_FOURTH, true)
+                ,Nota(Valores.SEMIBREVE, true),
+                Nota(Valores.MINIMA, true),
+                Nota(Valores.SEMINIMA, true),
+                Nota(Valores.COLCHEIA, true),
+                Nota(Valores.SEMICOLCHEIA, true),
+                Nota(Valores.FUSA, true),
+                Nota(Valores.SEMIFUSA, true)
+                Nota(Valores.SEMIFUSA, true)
                  */
         )
 

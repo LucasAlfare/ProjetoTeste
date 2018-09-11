@@ -22,7 +22,10 @@ public class Testes extends JFrame {
             super.paintComponent(g);
             setBackground(Color.WHITE);
 
-            desenharPauta(100, 500, 0, 0, g);
+            int[] tp = {500, 100};
+            int[] tcg = getTamanhoClaveG();
+
+            desenharPauta(tp[0], tp[1], 0, 0, g);
         }
     }
 
