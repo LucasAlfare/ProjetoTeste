@@ -1,4 +1,4 @@
-package gerador.gui.desenho;
+package gerador.gui.desenho.codigoAntigo;
 
 import java.awt.*;
 

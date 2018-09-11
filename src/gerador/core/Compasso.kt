@@ -36,10 +36,10 @@ class Compasso(var quantidade: Int, var unidade: Int, val notas: ArrayList<Nota>
                 Nota(Valores.WHOLE),
                 Nota(Valores.HALF),
                 Nota(Valores.QUARTER),
-                Nota(Valores.EIGHTH),
-                Nota(Valores.SIXTEENTH),
-                Nota(Valores.THIRTY_SECOND),
-                Nota(Valores.SIXTY_FOURTH)
+                Nota(Valores.EIGHTH)
+                //Nota(Valores.SIXTEENTH),
+                //Nota(Valores.THIRTY_SECOND),
+                //Nota(Valores.SIXTY_FOURTH)
 
                 /*
                 ,Nota(Valores.WHOLE, true),

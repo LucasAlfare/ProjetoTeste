@@ -1,4 +1,4 @@
-package gerador.gui.desenho;
+package gerador.gui.desenho.codigoAntigo;
 
 public class Elipse {                            // x^2/a2 ++ y^2/c2 = 1
 
