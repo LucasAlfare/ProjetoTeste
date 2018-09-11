@@ -1,6 +1,6 @@
 /**
  * Agradecimentos especiais a David Koelle por fornecer este belo guia
- * para utilização da biblioteca jFugue.
+ * para utilização da biblioteca jFugue:
  *
  * <link>https://medium.com/@dmkoelle/a-quick-reference-for-making-music-in-jfugue-7a15c1dbc9c3</link>
  */
