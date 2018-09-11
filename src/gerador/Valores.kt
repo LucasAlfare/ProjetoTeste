@@ -1,5 +1,6 @@
 package gerador
 
+//TODO: adicionar campos para intonação
 object Valores {
 
     const val SEMIBREVE    =  1
@@ -16,7 +17,7 @@ object Valores {
     const val BEMOL = "b"
     const val PONTO_AUMENTACAO = "."
 
-    //unidade to valor respectivo
+    //_unidade_ to _valor_
     val duracoes = mutableMapOf(
             SEMIBREVE    to    4.0,
             MINIMA       to    2.0,
@@ -27,7 +28,6 @@ object Valores {
             SEMIFUSA     to 0.0625
     )
 
-    //unidade to valor respectivo
     val duracoesString = mutableMapOf(
             SEMIBREVE    to "w",
             MINIMA       to "h",
@@ -37,8 +37,4 @@ object Valores {
             FUSA         to "t",
             SEMIFUSA     to "x"
     )
-
-    fun Nota.randomNota(){
-
-    }
 }
