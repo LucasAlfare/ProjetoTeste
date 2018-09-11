@@ -1,4 +1,4 @@
-package gerador
+package gerador.core
 
 import java.util.*
 

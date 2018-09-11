@@ -1,4 +1,4 @@
-package gerador
+package gerador.core
 
 //TODO: adicionar campos para intonação
 object Valores {
@@ -19,22 +19,22 @@ object Valores {
 
     //_unidade_ to _valor_
     val duracoes = mutableMapOf(
-            SEMIBREVE    to    4.0,
-            MINIMA       to    2.0,
-            SEMINIMA     to    1.0,
-            COLCHEIA     to    0.5,
+            SEMIBREVE to    4.0,
+            MINIMA to    2.0,
+            SEMINIMA to    1.0,
+            COLCHEIA to    0.5,
             SEMICOLCHEIA to   0.25,
-            FUSA         to  0.125,
-            SEMIFUSA     to 0.0625
+            FUSA to  0.125,
+            SEMIFUSA to 0.0625
     )
 
     val duracoesString = mutableMapOf(
-            SEMIBREVE    to "w",
-            MINIMA       to "h",
-            SEMINIMA     to "q",
-            COLCHEIA     to "i",
+            SEMIBREVE to "w",
+            MINIMA to "h",
+            SEMINIMA to "q",
+            COLCHEIA to "i",
             SEMICOLCHEIA to "s",
-            FUSA         to "t",
-            SEMIFUSA     to "x"
+            FUSA to "t",
+            SEMIFUSA to "x"
     )
 }

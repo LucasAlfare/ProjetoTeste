@@ -1,4 +1,4 @@
-package gerador
+package gerador.core
 
 import java.util.*
 
@@ -31,7 +31,6 @@ class Compasso(var quantidade: Int, var unidade: Int) {
         return "$quantidade/$unidade: $notas"
     }
 
-
     companion object {
         val notasOpcoes = arrayListOf(
                 Nota(Valores.SEMIBREVE),
@@ -43,6 +42,7 @@ class Compasso(var quantidade: Int, var unidade: Int) {
                 Nota(Valores.SEMIFUSA)
 
                 /*
+                TODO: implementar notas com ponto de aumentação
                 ,Nota(Valores.SEMIBREVE, true),
                 Nota(Valores.MINIMA, true),
                 Nota(Valores.SEMINIMA, true),
@@ -54,10 +54,11 @@ class Compasso(var quantidade: Int, var unidade: Int) {
                  */
         )
 
+        //utilizaado para quando não forem passados parâmetros
         private val unidades = arrayListOf(1, 2, 4, 8, 16, 32, 64)
 
         fun randomCompasso(
-                quantidade: Int = Random().nextInt(64),
+                quantidade: Int = Random().nextInt(64) + 1,
                 unidade: Int = unidades[Random().nextInt(unidades.size)]): Compasso {
             val c = Compasso(quantidade, unidade)
 
