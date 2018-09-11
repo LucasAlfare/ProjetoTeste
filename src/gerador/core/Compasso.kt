@@ -33,13 +33,13 @@ class Compasso(var quantidade: Int, var unidade: Int) {
 
     companion object {
         val notasOpcoes = arrayListOf(
-                Nota(Valores.SEMIBREVE),
-                Nota(Valores.MINIMA),
+                //Nota(Valores.SEMIBREVE),
+                //Nota(Valores.MINIMA),
                 Nota(Valores.SEMINIMA),
                 Nota(Valores.COLCHEIA),
-                Nota(Valores.SEMICOLCHEIA),
-                Nota(Valores.FUSA),
-                Nota(Valores.SEMIFUSA)
+                Nota(Valores.SEMICOLCHEIA)
+                //Nota(Valores.FUSA),
+                //Nota(Valores.SEMIFUSA)
 
                 /*
                 TODO: implementar notas com ponto de aumentação
@@ -63,7 +63,9 @@ class Compasso(var quantidade: Int, var unidade: Int) {
             val c = Compasso(quantidade, unidade)
 
             while (c.duracaoAtual() < c.duracaoMaxima){
-                c.adicionarNoFim(notasOpcoes[Random().nextInt(notasOpcoes.size)])
+                val n = notasOpcoes[Random().nextInt(notasOpcoes.size)]
+                n.pausa = false
+                c.adicionarNoFim(n)
 
                 /*
                 if (c.duracaoAtual() >= 3.9375 && c.duracaoAtual() < c.duracaoMaxima()) {

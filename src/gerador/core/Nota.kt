@@ -2,10 +2,16 @@ package gerador.core
 
 import java.util.*
 
-data class Nota(var unidade: Int, val pontuada: Boolean = false){
+data class Nota(var unidade: Int){
+
+    var pausa = false
+    var nota = ""
+    var pontuada: Boolean = false
+    var intonacao = -1
+
     override fun toString(): String {
         var r = ""
-        if (Random().nextBoolean()) {
+        if (!pausa) {
             val stringsNotas = arrayListOf("C", "D", "E", "F", "G", "A", "B")
             r += stringsNotas[Random().nextInt(stringsNotas.size)]
 
