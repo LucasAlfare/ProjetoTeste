@@ -161,11 +161,11 @@ var log = ""
 
 fun main(args: Array<String>) {
     val nomeArquivo = "arquivo.ly"
-    val s = randomLilypondString(numCompassos = 20).replace(" }", "}")
+    val s = randomLilyString(numCompassos = 20).replace(" }", "}")
     compilarLilyArquivo(nomeArquivo, s)
 }
 
-fun randomLilypondString(temposCompasso: Int = 4, unidadeCompasso: Int = 4, numCompassos: Int = 3): String {
+fun randomLilyString(temposCompasso: Int = 4, unidadeCompasso: Int = 4, numCompassos: Int = 3): String {
     var r = ""
 
     for (i in 0 until numCompassos){
