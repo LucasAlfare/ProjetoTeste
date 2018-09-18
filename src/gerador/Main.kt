@@ -8,16 +8,22 @@
 package gerador
 
 import gerador.core.Compasso
+import org.jfugue.integration.LilyPondParserListener
 import org.jfugue.midi.MidiFileManager
 import org.jfugue.pattern.Pattern
 import org.jfugue.player.Player
+import org.staccato.StaccatoParser
 import java.io.File
 
 fun main(args: Array<String>) {
-    gerarMIDI_Aleatorio(200, 120)
+    val parser = StaccatoParser()
+    val listener = LilyPondParserListener()
+    parser.addParserListener(listener)
+    parser.parse(gerarMIDI_Aleatorio(numCompassos = 10))
+    println(listener.lyString)
 }
 
-fun gerarMIDI_Aleatorio(numCompassos: Int = 1, tempo: Int = 60){
+fun gerarMIDI_Aleatorio(numCompassos: Int = 1, tempo: Int = 60): String {
     var staccatoStr = "G#5i Ri G#5i Ri G#5i Ri G#5i Ri | "
 
     for (i in 0 until numCompassos){
@@ -30,4 +36,6 @@ fun gerarMIDI_Aleatorio(numCompassos: Int = 1, tempo: Int = 60){
     println(staccatoStr)
     val p = Pattern(staccatoStr).setTempo(tempo)
     MidiFileManager.save(Player().getSequence(p), File("random_compasso.mid"))
+
+    return staccatoStr
 }
