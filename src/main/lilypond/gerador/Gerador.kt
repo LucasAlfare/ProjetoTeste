@@ -1,4 +1,4 @@
-package lilypond.parser
+package main.lilypond.gerador
 
 /**
  * ESTE CÓDIGO KOTLIN IRÁ GERAR, COMPILAR, SALVAR E ABRIR UM
