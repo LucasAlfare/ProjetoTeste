@@ -51,11 +51,11 @@ fun aleatorioDe(lista: List<Int>): Int {
 }
 
 @Suppress("IMPLICIT_CAST_TO_ANY")
-class Nota(val nota: String,
-           val acidente: String,
-           val oitava: String,
-           val unidade: Int,
-           val complemento: String,
+class Nota(private val nota:     String,
+           private val acidente: String,
+           private val oitava:   String,
+           private val unidade:     Int,
+           val complemento:      String,
            val duracao: Double){
 
     override fun toString() = "$nota$acidente$oitava$unidade$complemento"
@@ -64,14 +64,14 @@ class Nota(val nota: String,
         fun randomNota(): Nota {
             val u = aleatorioDe(unidades)
             val d = when (u){
-                1 -> 4.0
-                2 -> 2.0
-                4 -> 1.0
-                8 -> 0.5
-                16 -> 0.25
-                32 -> 0.125
-                64 -> 0.0625
-                else -> 0
+                 1   ->    4.0
+                 2   ->    2.0
+                 4   ->    1.0
+                 8   ->    0.5
+                16   ->   0.25
+                32   ->  0.125
+                64   -> 0.0625
+                else ->      0
             }
 
             return Nota(
@@ -86,22 +86,22 @@ class Nota(val nota: String,
     }
 }
 
-class Compasso(val quantidadeTempos: Int, val unidade: Int) {
+class Compasso(private val quantidadeTempos: Int, private val unidade: Int) {
 
     private val mapaDuracoes = mutableMapOf(
-            1 to 4.0,
-            2 to 2.0,
-            4 to 1.0,
-            8 to 0.5,
-            16 to 0.25,
-            32 to 0.125,
+             1 to    4.0,
+             2 to    2.0,
+             4 to    1.0,
+             8 to    0.5,
+            16 to   0.25,
+            32 to  0.125,
             64 to 0.0625
     )
 
     val duracaoMaxima = quantidadeTempos * mapaDuracoes[unidade]!!.toDouble()
-    var notas = arrayListOf<Nota>()
-    var primeiroCompasso = true
-    var ultimoCompasso = false
+    var notas         = arrayListOf<Nota>()
+    var primeiro      = true
+    var ultimo        = false
 
     //TODO: implementar incremento para quiálteras
     fun duracaoAtual(): Double {
@@ -125,10 +125,10 @@ class Compasso(val quantidadeTempos: Int, val unidade: Int) {
     }
 
     override fun toString(): String {
-        var s = if (!primeiroCompasso) "{" else ""
+        var s = if (!primeiro) "{" else ""
         for (nota in notas) s += "$nota "
-        if (ultimoCompasso) s += "}"
-        return (if (primeiroCompasso) "\\new Staff {\\time $quantidadeTempos/$unidade {" else "") + s + "}"
+        if (ultimo) s += "}"
+        return (if (primeiro) "\\new Staff {\\time $quantidadeTempos/$unidade {" else "") + s + "}"
     }
 
     companion object {
@@ -166,11 +166,11 @@ private fun randomLilyString(temposCompasso: Int = 4, unidadeCompasso: Int = 4, 
     for (i in 0 until numCompassos){
         val c = Compasso.randomCompasso(temposCompasso, unidadeCompasso)
         if (i in 1..(numCompassos - 1)){
-            c.primeiroCompasso = false
-            c.ultimoCompasso = false
+            c.primeiro = false
+            c.ultimo = false
         }
 
-        if (i == numCompassos - 1) c.ultimoCompasso = true
+        if (i == numCompassos - 1) c.ultimo = true
         r += c.toString()
     }
 
