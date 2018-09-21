@@ -13,14 +13,16 @@ val notas = listOf(
 )
 
 val acidentes = listOf(
-        "", "is", "es"
+        ""
+        //"is",
+        //"es"
 )
 
 val oitavas = listOf(
         //",",
         //"",
-        "'",
-        "''"
+        "'"
+        //"''"
         //"'''",
         //"''''"
 )
@@ -40,19 +42,11 @@ val complementos = listOf(
         //"."
 )
 
-val duracoes = listOf(
-        4.0, 2.0, 1.0, 0.5, 0.25, 0.125, 0.0625
-)
-
 fun aleatorioDe(lista: List<String>): String {
     return lista[Random().nextInt(lista.size)]
 }
 
 fun aleatorioDe(lista: List<Int>): Int {
-    return lista[Random().nextInt(lista.size)]
-}
-
-fun aleatorioDe(lista: List<Double>): Double {
     return lista[Random().nextInt(lista.size)]
 }
 
@@ -109,6 +103,7 @@ class Compasso(val quantidadeTempos: Int, val unidade: Int) {
     var primeiroCompasso = true
     var ultimoCompasso = false
 
+    //TODO: implementar incremento para quiálteras
     fun duracaoAtual(): Double {
         var total = 0.0
         for (n in notas){
@@ -161,16 +156,16 @@ var log = ""
 
 fun main(args: Array<String>) {
     val nomeArquivo = "arquivo.ly"
-    val s = randomLilyString(numCompassos = 20).replace(" }", "}")
-    compilarLilyArquivo(nomeArquivo, s)
+    val s = randomLilyString(temposCompasso = 4, numCompassos = 4).replace(" }", "}")
+    compilarEAbrirLilyArquivo(nomeArquivo, s)
 }
 
-fun randomLilyString(temposCompasso: Int = 4, unidadeCompasso: Int = 4, numCompassos: Int = 3): String {
+private fun randomLilyString(temposCompasso: Int = 4, unidadeCompasso: Int = 4, numCompassos: Int = 3): String {
     var r = ""
 
     for (i in 0 until numCompassos){
         val c = Compasso.randomCompasso(temposCompasso, unidadeCompasso)
-        if (i > 0 && i < numCompassos){
+        if (i in 1..(numCompassos - 1)){
             c.primeiroCompasso = false
             c.ultimoCompasso = false
         }
@@ -182,7 +177,7 @@ fun randomLilyString(temposCompasso: Int = 4, unidadeCompasso: Int = 4, numCompa
     return r
 }
 
-fun salvarLilyArquivo(nomeArquivo: String, lilyString: String){
+private fun salvarLilyArquivo(nomeArquivo: String, lilyString: String){
     log = "Tentando salvar LilyString em arquivo..."
     println(log)
     val arquivo = File(nomeArquivo)
@@ -191,7 +186,7 @@ fun salvarLilyArquivo(nomeArquivo: String, lilyString: String){
     println(log)
 }
 
-fun compilarLilyArquivo(nomeArquivo: String, conteudo: String){
+private fun compilarEAbrirLilyArquivo(nomeArquivo: String, conteudo: String){
     salvarLilyArquivo(nomeArquivo, conteudo)
     log = "Tentando compilar LilyString..."
     println(log)
@@ -204,7 +199,7 @@ fun compilarLilyArquivo(nomeArquivo: String, conteudo: String){
     abrirPDF(nomeArquivo)
 }
 
-fun abrirPDF(nomeArquivo: String){
+private fun abrirPDF(nomeArquivo: String){
     val novoNome = nomeArquivo.replace("ly", "pdf")
     log = "Tentando abrir o arquivo $novoNome"
     println(log)
@@ -215,7 +210,8 @@ fun abrirPDF(nomeArquivo: String){
     println(log)
 }
 
-fun executarComando(comando: String){
+private fun executarComando(comando: String){
+    log = "Preparando para executar comando..."
     val p = Runtime.getRuntime().exec(comando)
     val bri = BufferedReader(InputStreamReader(p.inputStream))
 
